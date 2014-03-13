@@ -28,7 +28,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Utilities for working with OIM IT Resources
+ * Utilities for working with OIM Users
  * 
  * @author watersjeremy
  * 

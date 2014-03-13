@@ -26,6 +26,8 @@ import org.apache.commons.logging.LogFactory;
 import Thor.API.Operations.tcFormInstanceOperationsIntf;
 
 /**
+ * Utilities for working with OIM Process Forms
+ * 
  * @author WatersJeremy
  * 
  */
