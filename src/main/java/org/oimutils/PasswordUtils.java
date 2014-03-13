@@ -40,51 +40,47 @@ public class PasswordUtils
 	public static String generatePassword()
 	{
 		int passwordLength = 8;
-		String password = null;
+		char[] password = new char[passwordLength];
 
-		char[] password2 = new char[passwordLength];
-
-		// with ambiguous characters removed (e.g. 0/O, I/1/l)
+		// password chars with ambiguous characters removed (e.g. 0/O, I/1/l)
 		String upper = "ABCDEFGHJKLMNPQRSTUVWXYZ";
 		String lower = "abcdefghijkmnopqrstuvwxyz";
 		String digit = "23456789";
 
 		// set 1 of each upper/lower/digit
-		fillPasswordChar(passwordLength, password2, upper);
-		fillPasswordChar(passwordLength, password2, lower);
-		fillPasswordChar(passwordLength, password2, digit);
+		fillPasswordChar(passwordLength, password, upper);
+		fillPasswordChar(passwordLength, password, lower);
+		fillPasswordChar(passwordLength, password, digit);
 
 		// fill the remainder of the blanks in the password
 		for (int i = 0; i < passwordLength; i++)
 		{
-			if ( password2[i] == '\0' )
+			if ( password[i] == '\0' )
 			{
-				password2[i] = getRandomChar(upper + lower + digit);
+				password[i] = getRandomChar(upper + lower + digit);
 			}
 		}
 
-		log.info(new String(password2));
-
-		return password;
+		return new String(password);
 	}
 
 	/**
 	 * fills one random character within the password with a random character chosen from the input set
 	 * 
 	 * @param passwordLength
-	 * @param password2
+	 * @param password
 	 * @param upper
 	 */
-	private static void fillPasswordChar(int passwordLength, char[] password2, String string)
+	private static void fillPasswordChar(int passwordLength, char[] password, String string)
 	{
 		int pos;
 		do
 		{
 			pos = (int) (Math.random() * passwordLength);
 		}
-		while (password2[pos] != '\0');
+		while (password[pos] != '\0');
 
-		password2[pos] = getRandomChar(string);
+		password[pos] = getRandomChar(string);
 	}
 
 	/**
