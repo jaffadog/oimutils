@@ -76,7 +76,7 @@ public class SqlUtils
 		}
 		catch (Throwable t)
 		{
-			UserUtils.log.error("error: " + t.getMessage(), t);
+			log.error("error: " + t.getMessage(), t);
 		}
 		finally
 		{

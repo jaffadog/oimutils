@@ -35,7 +35,8 @@ import org.apache.commons.logging.LogFactory;
  */
 public class UserUtils
 {
-	static Log log = LogFactory.getLog(UserUtils.class);
+	private static Log log = LogFactory.getLog(UserUtils.class);
+	
 	/**
 	 * @param userID
 	 *            usr_login or usr_key
